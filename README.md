@@ -6,7 +6,7 @@ Landing Page of a start-up marketing agency, which, I believe, will help to star
 #### Stack:
 HTML / CSS / ES6 / JQuery / BEM / Webpack / Babel /
 
-#### Tests 
+#### Tests: 
 PageSpeed Insights: 
 * desktop 98 
 * mobile 82
