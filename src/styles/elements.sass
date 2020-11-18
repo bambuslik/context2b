@@ -1,0 +1,230 @@
+@import "constants"
+
+//TECH
+%bd
+  border: 1px solid red
+
+//PARTS
+.color-shadow
+  color: $COLOR_FONT_SHADOW
+
+.left-border
+  position: relative
+
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 4px
+    height: 100%
+    background: $COLOR_BLUE
+    border-radius: 3px
+
+
+//ELEMENTS
+.link
+  color: $COLOR_FONT_DEFAULT
+  text-decoration: none
+  transition: opacity .2s ease-in
+
+  &_underline
+    text-decoration: underline
+
+  &:hover
+    opacity: .8
+
+.button
+  border-radius: 6px
+  font-weight: 500
+  padding: 0 30px
+  height: 48px
+  font-size: 16px
+  font-family: 'Gilroy', 'Arial', sans-serif
+  cursor: pointer
+  outline: none
+  transition: opacity .2s ease-in
+
+  @media(max-width: 768px)
+    height: 40px
+
+  &_full-blue
+    background: linear-gradient(180deg, #2174FE 0%, #0160FF 100%)
+    border: none
+    color: $COLOR_WHITE
+
+  &_transparent-white
+    color: $COLOR_WHITE_SOFT
+    background: transparent
+    border: 1px solid $COLOR_WHITE_SOFT
+
+  &_transparent-blue
+    color: #1F73FF
+    background: transparent
+    border: 1px solid #1F73FF
+
+
+  &_transparent-blue
+
+
+  &:hover
+    opacity: .8
+
+.input-text, .textarea
+  color: $COLOR_FONT_SHADOW
+  font-weight: 500
+  line-height: 1.5
+  background: $COLOR_WHITE_SOFT
+  border: 1px solid $COLOR_INPUT_BORDER
+  border-radius: 6px
+  height: 48px
+  padding: 0 25px
+  outline: none
+  box-sizing: border-box
+
+.textarea
+  height: 160px
+  padding-top: 12px
+  resize: none
+
+.section
+  padding: 20px 0
+
+  &__wrapper
+    max-width: $CONTENT_WIDTH
+    margin: 0 auto
+    padding: 0 $CONTENT_SIDES_PADDING
+
+    @media(max-width: 768px)
+      padding: 0 10px
+
+  &__title
+    margin: 40px 0 0
+    color: $COLOR_FONT_BOLD
+    font-size: 48px
+    line-height: 1.23
+    font-weight: 500
+    text-align: center
+
+    @media(max-width: 1024px)
+      margin: 20px 0 0
+      font-size: 38px
+
+    @media(max-width: 768px)
+      font-size: 26px
+
+  &__sub-title
+    margin: 30px auto 0
+    line-height: 1.37
+    font-weight: 500
+    text-align: center
+
+    @media(max-width: 768px)
+      margin-top: 20px
+
+.steps-list
+  list-style: none
+  margin: 0
+  padding: 0
+  display: grid
+  grid-template-rows: auto
+  grid-gap: 30px
+
+  &_about
+    grid-template-columns: 1fr 1fr 1fr 1fr
+
+    @media(max-width: 1000px)
+      grid-template-columns: 1fr 1fr
+
+    @media(max-width: 546px)
+      grid-template-columns: 1fr
+      grid-gap: 10px
+
+  &_steps
+    grid-template-columns: 1fr 1fr 1fr
+
+    @media(max-width: 1080px)
+      grid-template-columns: 1fr 1fr
+
+    @media(max-width: 640px)
+      grid-template-columns: 1fr
+      grid-gap: 10px
+
+.steps-item
+  background: #FFF
+  padding: 26px 20px 33px
+  border-radius: 25px
+  box-shadow: 0px 4px 44px #DFDFDF
+
+  &__number
+    font-weight: 500
+    font-size: 56px
+    line-height: 1.14
+    color: #1F73FF
+    margin: 0
+
+    @media(max-width: 768px)
+      font-size: 38px
+
+  &__title
+    margin: 4px 0 0
+    font-weight: 500
+    font-size: 32px
+    color: #001737
+
+    @media(max-width: 768px)
+      font-size: 26px
+      margin: 0
+
+  &__text
+    margin: 20px 0 0
+    padding-left: 14px
+    color: #405169
+
+    & br
+      @media(max-width: 768px)
+        display: none
+
+
+.form
+  display: flex
+  flex-direction: column
+  max-width: 445px
+
+  @media(max-width: 768px)
+    max-width: none
+    text-align: center
+
+  &__title
+    margin: 0
+    font-size: 32px
+    line-height: 1.14
+    font-weight: 500
+
+    @media(max-width: 768px)
+      font-size: 20px
+
+  &__input-text
+    margin-top: 20px
+
+  &__input-textarea
+    margin-top: 20px
+
+    @media(max-width: 768px)
+      height: 100px
+
+  &__submit
+    margin-top: 15px
+
+  &__policy
+    margin: 10px 0 0
+    color: $COLOR_FONT_SHADOW
+    font-size: 14px
+    line-height: 1.37
+
+  &__step
+    margin: 30px 0 0
+    line-height: 1.37
+
+    @media(max-width: 768px)
+      font-size: 14px

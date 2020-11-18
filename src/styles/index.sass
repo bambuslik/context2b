@@ -1,0 +1,1183 @@
+@import "constants"
+@import "fonts"
+@import "elements"
+
+body
+  font-family: 'Gilroy', 'Arial', sans-serif
+  color: $COLOR_FONT_DEFAULT
+  background: #f8f8f9
+
+//PAGE HEADER
+.page-header
+  border-bottom: 1px solid #E6E8EB
+  position: sticky
+  z-index: 999
+  top: 0
+  left: 0
+  background: #f8f8f9
+
+  &__logo
+    position: relative
+    background: url('../images/logo.svg') no-repeat center
+    width: 152px
+    height: 32px
+    z-index: 3
+
+    @media(max-width: 768px)
+      background: url('../images/logo_mob.svg') no-repeat center
+      width: 108px
+      height: 22px
+
+
+  &__nav
+    @media(max-width: 1124px)
+      order: 4
+
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    max-width: 1420px
+    margin: 0 auto
+    padding: 16px 20px
+    box-sizing: border-box
+
+    @media(max-width: 768px)
+      padding: 12px 10px
+
+
+  &__tel
+    color: $COLOR_FONT_BOLD
+    font-weight: 600
+    position: relative
+    z-index: 2
+
+    @media(max-width: 1124px)
+      order: 2
+
+    @media(max-width: 590px)
+      display: none
+
+  &__callback-btn
+    position: relative
+    z-index: 2
+
+    @media(max-width: 1124px)
+    order: 3
+
+    @media(max-width: 768px)
+      font-size: 14px
+      padding: 0 20px
+
+.header-menu
+  list-style: none
+  margin: 0
+  padding: 0
+  font-weight: 600
+  font-size: 15px
+  display: flex
+  column-gap: 20px
+
+  @media(max-width: 1124px)
+    display: none
+    position: absolute
+    background: #F2F3F5 url('../images/mob-menu-border.svg') no-repeat center 80px
+    box-shadow: 0 4px 94px #dad9d9
+    padding: 90px 30px 30px 30px
+    box-sizing: border-box
+    left: 0
+    top: 0
+    width: 100%
+    flex-direction: column
+    z-index: 2
+
+  @media(max-width: 768px)
+    background: #F2F3F5 url('../images/mob-menu-border.svg') no-repeat center 64px
+
+  &_mob-active
+    display: block
+
+  &__item
+
+    @media(max-width: 1124px)
+      margin-top: 10px
+
+  &__link
+    @media(max-width: 1124px)
+      font-size: 18px
+      font-weight: 500
+      color: #101325
+
+
+.mob-burger
+  display: none
+  justify-content: center
+  width: 42px
+  height: 22px
+  border: none
+  padding: 0
+  cursor: pointer
+  background: none
+  position: relative
+  outline: none
+  z-index: 3
+
+  &__line
+    width: 100%
+    height: 2px
+    background: #405169
+    position: absolute
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    transition: .3s all ease
+
+    &:nth-child(1)
+      top: 0
+      left: 0
+
+    &:nth-child(2)
+      top: 50%
+      transform: translate(0, -50%)
+      left: 0
+
+    &:nth-child(3)
+      bottom: 0
+      left: 0
+
+  &_active &__line:nth-child(1)
+    top: 50%
+    transform: translate(0, -50%) rotate(45deg)
+
+  &_active &__line:nth-child(2)
+    opacity: 0
+
+  &_active &__line:nth-child(3)
+    bottom: 50%
+    transform: translate(0, 50%) rotate(-45deg)
+
+  @media(max-width: 1124px)
+    display: block
+
+//SECTION PROMO
+.section-promo
+  background: #f5f5f5 url('../images/bg.svg') no-repeat center
+  background-size: auto 100%
+
+  &__wrapper
+    display: grid
+    grid-template-columns: auto auto
+    grid-template-rows: auto auto auto
+    grid-template-areas: "title form" "sub-title form" "triggers form"
+    padding-top: 100px
+    padding-bottom: 162px
+
+    @media(max-width: 1024px)
+      padding-top: 30px
+      padding-bottom: 22px
+
+    @media(max-width: 768px)
+      padding-top: 0
+      grid-template-columns: auto
+      grid-template-rows: auto
+      grid-template-areas: "title" " form" "sub-title" "triggers"
+
+  &__title
+    grid-area: title
+    margin: 0
+    font-size: 56px
+    font-weight: 500
+    color: $COLOR_FONT_BOLD
+
+    @media(max-width: 1024px)
+      font-size: 36px
+
+    @media(max-width: 768px)
+      font-size: 28px
+      text-align: center
+
+
+  &__sub-title
+    grid-area: sub-title
+    margin: 50px 0 0
+    font-size: 16px
+    font-weight: 500
+    line-height: 1.37
+    max-width: 400px
+
+    @media(max-width: 768px)
+      margin-top: 30px
+      text-align: center
+      max-width: none
+
+  &__form-cont
+    grid-area: form
+    background: #F2F3F5
+    border-radius: 25px
+    padding: 40px 36px
+    max-width: 514px
+    box-sizing: border-box
+    margin-left: 20px
+
+    @media(max-width: 768px)
+      padding: 23px 14px 14px
+      margin: 20px 0 0
+      max-width: none
+
+
+  &__form_desktop
+
+    @media(max-width: 768px)
+      display: none
+
+  &__form_mob
+    display: none
+
+    @media(max-width: 768px)
+      display: flex
+
+.promo-triggers
+  grid-area: triggers
+  list-style: none
+  margin: 0
+  padding: 0
+
+.triggers-item
+  margin-top: 30px
+  padding-left: 14px
+
+  &:nth-child(1)
+    margin-top: 50px
+
+    @media(max-width: 768px)
+      margin-top: 26px
+
+  &__title
+    margin: 0
+    font-size: 16px
+    color: $COLOR_FONT_BOLD
+    font-weight: 500
+    line-height: 1.37
+
+  &__sub-title
+    margin: 0
+    color: $COLOR_FONT_SHADOW
+    font-weight: 500
+    line-height: 1.37
+
+//SECTION SERVICES
+.section-services
+  background: #f8f8f9
+
+  &__sub-title
+    max-width: 407px
+
+.services
+  margin: 40px 0 0
+  padding: 0
+  list-style: none
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-template-rows: 1fr 1fr
+  grid-gap: 28px
+
+  @media(max-width: 768px)
+    margin-top: 20px
+    display: block
+
+  &__item
+
+    @media(max-width: 768px)
+      margin-top: 10px
+
+.services-item
+  display: flex
+  flex-direction: column
+  color: #fff
+  padding: 40px
+  min-height: 360px
+  box-sizing: border-box
+  border-radius: 25px
+
+  @media(max-width: 768px)
+    padding: 30px 20px 20px
+    min-height: auto
+
+  &__title
+    margin: 0
+    font-weight: 500
+    font-size: 32px
+    line-height: 1.3
+
+    @media(max-width: 768px)
+      font-size: 26px
+
+    & br
+      @media(max-width: 768px)
+        display: none
+
+  &__sub-title
+    font-weight: 500
+    line-height: 1.37
+    color: $COLOR_WHITE_SOFT
+
+    & br
+      @media(max-width: 768px)
+        display: none
+
+  &__ico-btn-cont
+    margin-top: auto
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__ico
+    width: 60px
+    height: 60px
+
+  &_yandex
+    background: url('../images/services/services-ya-bg.svg') no-repeat right top, linear-gradient(180deg, #FFBF3A 0%, #FFAC00 100%)
+    box-shadow: 0px 10px 15px rgba(255, 191, 58, 0.2)
+
+  &_adwords
+    background: url('../images/services/services-google-bg.svg') no-repeat right top, linear-gradient(180deg, #2174FE 0%, #0160FF 100%)
+    box-shadow: 0px 10px 15px rgba(0, 119, 255, 0.2)
+
+  &_metric
+    background: url('../images/services/services-metric-bg.svg') no-repeat right top, linear-gradient(180deg, #FFBF3A 0%, #21B787 0.01%, #139B70 47.92%)
+
+  &_audit
+    background: url('../images/services/services-audit-bg.svg') no-repeat right top, linear-gradient(180deg, #774EE0 0%, #541CE4 100%)
+    box-shadow: 0px 10px 15px rgba(119, 78, 224, 0.2)
+
+//SECTION BETTER-ADS
+.section-better-ads
+  padding-bottom: 0
+
+  &__content-wrapper
+    background: $COLOR_WHITE_SOFT
+    border: 1px solid #DFE1E6
+    border-radius: 25px
+    padding: 20px
+
+    @media(max-width: 768px)
+      padding: 20px 14px
+
+  &__form
+    margin: 46px auto 0
+
+    @media(max-width: 768px)
+      margin-top: 0
+
+//SECTION ABOUT
+.section-about
+  padding-top: 20px
+  position: relative
+
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    display: block
+    background: url('../images/about-us-bg.svg') no-repeat center -400px
+    width: 100%
+    height: 800px
+    z-index: -1
+
+    @media(max-width: 768px)
+      top: 10px
+
+  &__sub-title
+    max-width: 844px
+
+  &__list
+    margin-top: 50px
+
+    @media(max-width: 768px)
+      margin-top: 30px
+
+//SECTION CASES
+.section-cases
+  padding-bottom: 48px
+
+  &__button
+    display: block
+    margin: 80px auto 0
+    min-width: 400px
+
+.cases
+  list-style: none
+  margin: 70px 0 0
+  padding: 0
+
+  @media(max-width: 768px)
+    margin-top: 30px
+
+  &__item
+    margin-top: 30px
+
+.cases-item
+  position: relative
+
+  @media(max-width: 940px)
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  &__bg
+    position: absolute
+    top: 0
+    right: 0
+    overflow: hidden
+    z-index: -1
+    margin-left: auto
+    margin-right: 0
+    height: 100%
+    border-radius: 25px
+
+    @media(max-width: 940px)
+      width: 100%
+
+  &__bg-img
+    border-radius: 25px
+    width: 100%
+
+    @media(max-width: 940px)
+
+  &_hidden-desktop
+    display: none
+
+    @media(max-width: 940px)
+      display: flex
+
+.case-info
+  background: #fff
+  border-radius: 25px
+  margin: 25px 0
+  padding: 60px 40px 30px
+  min-width: 516px
+  display: inline-block
+  box-sizing: border-box
+
+  @media(max-width: 940px)
+    margin: 130px 18px 0
+    padding: 24px
+    min-width: auto
+    box-sizing: border-box
+    display: block
+  //width: calc(100% - 18px)
+
+  &__title
+    font-weight: 500
+    font-size: 28px
+    line-height: 1.35
+    color: #001737
+    margin: 0
+
+    @media(max-width: 940px)
+      font-size: 18px
+
+  &__region
+    margin: 13px 0 0
+    color: #405169
+
+  &__city
+    font-weight: 500
+    color: #000
+
+  &__info-line
+    margin: 14px 0 0
+
+  &__info-line_bold
+    margin-top: 67px
+    font-weight: 500
+
+    @media(max-width: 940px)
+      margin-top: 20px
+
+  &__button
+    margin-top: 44px
+
+    @media(max-width: 940px)
+      margin-top: 20px
+      width: 100%
+
+.cases-slider-nav
+  display: none
+  justify-content: center
+  column-gap: 100px
+  margin: 30px auto 0
+
+  @media(max-width: 940px)
+    display: flex
+
+  &__button
+    width: 44px
+    height: 44px
+    border: none
+    background-size: cover
+    cursor: pointer
+    outline: none
+    font-size: 0
+    text-indent: -9999px
+
+    &_prev
+      background: url('../images/cases-slider-prev-btn.svg') no-repeat center
+
+    &_next
+      background: url('../images/cases-slider-next-btn.svg') no-repeat center
+
+
+//SECTION STEPS
+.section-steps
+  background: #F2F3F5
+  padding-bottom: 60px
+
+  @media(max-width: 768px)
+    padding-bottom: 20px
+
+
+  &__list
+    margin-top: 70px
+
+//SECTION COST
+.section-cost
+
+  &__sub-title
+    max-width: 516px
+
+    @media(max-width: 768px)
+      max-width: none
+
+
+  &__list
+    margin-top: 16px
+
+.cost-list
+  list-style: none
+  padding: 0
+  display: grid
+  grid-template-rows: auto
+  grid-template-columns: 1fr 1fr 1fr
+  grid-gap: 30px
+
+  @media(max-width: 920px)
+    grid-template-columns: 1fr
+
+.cost-list-item
+  background: #F2F3F5
+  border: 1px solid #DFE1E6
+  box-sizing: border-box
+  border-radius: 25px
+  padding: 10px 10px 20px
+  display: flex
+  flex-direction: column
+  //justify-content: space-between
+
+  &__title
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 13px
+    background: #FFFFFF
+    box-shadow: 0 4px 94px #DFDFDF
+    border-radius: 25px
+    font-weight: 500
+    font-size: 28px
+    line-height: 1.35
+    text-align: center
+    color: #000000
+    margin: 0
+    min-height: 137px
+
+    @media(max-width: 768px)
+      font-size: 22px
+      min-height: auto
+
+  &__price
+    margin: 40px 0 0
+    font-weight: 500
+    font-size: 32px
+    line-height: 1.1
+    color: #001737
+    text-align: center
+
+    @media(max-width: 1024px)
+      margin: 20px 0 0
+      font-size: 22px
+
+  &__money
+    color: #1F73FF
+    white-space: nowrap
+
+  &__price-sub-title
+    font-weight: 500
+    font-size: 16px
+    line-height: 1.37
+    color: #405169
+    margin: 14px 0 0
+    padding: 0
+    text-align: center
+
+  &__info-cont
+    margin: 20px
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+
+    @media(max-width: 1024px)
+      margin: 0
+
+  &__roster
+    margin: 30px 0 0
+
+  &__bottom-line
+    margin: auto 0 0
+    font-weight: 500
+    font-size: 16px
+    line-height: 1.37
+    color: #405169
+
+  &__button
+    margin-top: 60px
+    width: 100%
+
+    @media(max-width: 768px)
+      margin-top: 30px
+
+
+.cost-roster
+  list-style: none
+  padding: 0
+
+  &__item
+    min-height: 50px
+    display: flex
+    align-items: center
+    font-size: 16px
+    line-height: 1.37
+    color: #405169
+    border-bottom: 1px solid #E6E8EB
+
+  &__item:last-child
+    margin-bottom: 24px
+
+  &__item-plus
+    padding-right: 6px
+    color: #1F73FF
+
+//SECTION GUARANTEES
+.section-guarantees
+  background: #F2F3F5
+  padding-bottom: 40px
+
+  &__list
+    margin: 40px 0 0
+
+.guarantees-list
+  list-style: none
+  padding: 0
+  display: grid
+  grid-gap: 30px
+  grid-template-rows: 1fr 1fr
+  grid-template-columns: 1fr 1fr
+
+  @media(max-width: 560px)
+    grid-template-columns: 1fr
+    grid-gap: 10px
+
+
+.guarantees-item
+  background: #FFFFFF
+  box-shadow: 0px 4px 94px #DFDFDF
+  border-radius: 25px
+  padding: 34px 23px
+
+  @media(max-width: 768px)
+    padding: 23px
+
+  &__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    @media(max-width: 768px)
+      flex-direction: column
+      align-items: flex-start
+
+  &__title
+    margin: 0 10px 0 0
+    font-weight: 500
+    font-size: 32px
+    line-height: .87
+    color: #405169
+
+    @media(max-width: 768px)
+      margin-top: 20px
+      font-size: 24px
+      order: 2
+
+  &__ico
+    width: 50px
+    height: 50px
+
+    @media(max-width: 768px)
+      order: 1
+
+  &__info
+    padding: 0 22px 0 14px
+    margin: 46px 0 0
+
+    @media(max-width: 768px)
+      margin-top: 30px
+
+//SECTION FAQ
+.section-faq
+  background: #f8f8f9
+
+  &__questions
+    margin-top: 40px
+    margin-bottom: 0
+
+.questions
+  list-style: none
+  padding: 0
+
+  &__item
+    margin: 30px 0 0
+
+.question
+
+  &__header
+    margin: 0
+    font-weight: 500
+    font-size: 28px
+    line-height: 1.35
+    color: #001737
+    display: flex
+    align-items: center
+    cursor: pointer
+    transition: transform .2s ease
+
+    @media(max-width: 768px)
+      font-size: 20px
+
+    &_hover
+  //transform: translateX(10px)
+
+  &__plus
+    background: url('../images/faq-cross.svg') no-repeat center
+    background-size: contain
+    display: inline-block
+    flex-shrink: 0
+    width: 22px
+    height: 22px
+    margin-right: 20px
+    transition: transform .2s ease
+
+    @media(max-width: 768px)
+      width: 18px
+      height: 18px
+
+    &_hover
+      transform: rotate(45deg)
+
+    &_active
+      transform: rotate(45deg)
+
+  &__text
+    transition: transform .2s ease
+
+    &_hover
+      transform: translateX(10px)
+
+  &__answer-cont
+    margin: 20px 0 0 57px
+    padding: 26px
+    background: #FFFFFF
+    box-shadow: 0px 4px 94px #DFDFDF
+    border-radius: 25px
+    display: none
+
+    @media(max-width: 768px)
+      margin: 10px 0 0
+      padding: 14px
+
+    &_active
+      display: block
+
+  &__answer
+    padding-left: 14px
+    font-size: 20px
+    line-height: 1.3
+
+    @media(max-width: 768px)
+      margin: 6px
+      font-size: 16px
+
+
+.question-answer
+
+  &__hint
+    font-weight: 500
+    color: #000
+
+//SECTION QUESTIONS
+.section-questions
+  padding-top: 80px
+
+  @media(max-width: 1024px)
+    padding-top: 30px
+
+
+  &__content-wrapper
+    background: #FFFFFF
+    border: 1px solid #DFE1E6
+    box-sizing: border-box
+    border-radius: 25px
+    padding: 60px
+
+    @media(max-width: 1024px)
+      padding: 20px
+
+
+  &__title
+    margin: 0
+
+  &__sub-title
+    max-width: 480px
+
+  &__form
+    margin: 46px auto 0
+
+    @media(max-width: 768px)
+      margin-top: 20px
+
+//FOOTER
+.page-footer
+  background: #f4f5f7
+
+  &__wrapper
+    max-width: $CONTENT_WIDTH
+    margin: 80px auto 0
+    padding: 0 $CONTENT_SIDES_PADDING
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    column-gap: 30px
+
+    @media(max-width: 1094px)
+      display: block
+      margin: 30px auto 0
+
+  &__top-border
+    width: 100%
+    height: 1px
+    background: rgba(16, 19, 37, 0.09)
+    margin-bottom: 50px
+
+    @media(max-width: 1094px)
+      margin-bottom: 20px
+
+
+  &__services
+
+.footer-services
+
+  &__title
+    margin: 0
+    font-weight: 600
+    font-size: 18px
+    line-height: 1.22
+    color: #101325
+
+.footer-services-list
+  list-style: none
+  padding: 0
+  margin: 22px 0 0 0
+  display: grid
+  grid-template-columns: auto auto
+  grid-template-rows: auto auto
+  column-gap: 60px
+  row-gap: 16px
+
+  @media(max-width: 1094px)
+    grid-template-columns: auto
+
+  &__item
+    font-weight: 500
+    font-size: 15px
+    color: #101325
+    text-transform: uppercase
+
+.footer-contacts
+
+  @media(max-width: 1094px)
+    margin-top: 30px
+    border-top: 1px solid rgba(16, 19, 37, 0.09)
+    padding-top: 20px
+
+  &__title
+    margin: 0
+    font-weight: 600
+    font-size: 18px
+    line-height: 1.22
+    color: #101325
+
+.footer-contacts-list
+  list-style: none
+  padding: 0
+  margin: 22px 0 0 0
+  display: grid
+  grid-template-areas: "address tel" "address mail"
+  grid-template-columns: auto auto
+  grid-template-rows: auto auto
+  column-gap: 60px
+  row-gap: 16px
+
+  @media(max-width: 1094px)
+    grid-template-areas: "address" "tel" "mail"
+    grid-template-columns: auto
+
+  &__item
+    font-weight: 500
+    font-size: 15px
+    color: #101325
+
+    &_address
+      grid-area: address
+      max-width: 279px
+      line-height: 1.6
+
+    &_tel
+      grid-area: tel
+
+    &_mail
+      grid-area: mail
+
+  &__link
+    color: #101325
+
+.copyright
+  border-top: 1px solid rgba(16, 19, 37, 0.09)
+  padding: 21px 0
+  margin-top: 52px
+  text-align: center
+  font-weight: 500
+  font-size: 14px
+  color: #101325
+  width: 100%
+
+  @media(max-width: 1094px)
+    margin-top: 30px
+    text-align: left
+
+//POPUP
+.fancybox-bg
+  background: #E3E3E3
+
+.fancybox-close-small
+  width: 30px
+  height: 30px
+  box-sizing: border-box
+  background: url('../images/popup-cross.svg') no-repeat center
+  background-size: contain
+
+.popup
+  display: none
+  background: #fff
+
+  &_form
+    padding: 40px 40px
+    max-width: 625px
+    border-radius: 25px
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.04)
+
+    .fancybox-close-small
+      position: absolute
+      right: 10px
+      top: 10px
+
+  @media(max-width: 768px)
+    padding: 20px
+
+  &__content
+    display: flex
+    flex-direction: column
+    align-items: center
+    max-width: 444px
+    margin: 0 auto
+
+  &__title
+    font-size: 32px
+    line-height: 1.1
+    font-weight: 500
+    margin: 0
+
+    @media(max-width: 768px)
+      font-size: 20px
+
+  &__sub-title
+    line-height: 1.4
+    margin: 20px 0 0
+    text-align: center
+
+  & svg
+    display: none
+
+.popup-case
+  display: none
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  margin: 0 !important
+  padding: 0 0 30px 48px
+  max-width: 1080px
+
+  .fancybox-close-small
+    position: absolute
+    left: 10px
+    top: 10px
+
+  &__promo
+    padding: 30px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    position: relative
+
+    &:before
+      content: ''
+      display: block
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background: rgba(0, 0, 0, 0.59)
+      z-index: 1
+
+
+    @media(max-width: 768px)
+      padding: 10px
+
+    &_case1
+      background: url('../images/cases/01-popup.jpg') no-repeat center
+      background-size: cover
+
+    &_case2
+      background: url('../images/cases/02-popup.jpg') no-repeat center
+      background-size: cover
+
+    &_case3
+      background: url('../images/cases/03-popup.jpg') no-repeat center
+      background-size: cover
+
+    &_case4
+      background: url('../images/cases/04-popup.jpg') no-repeat center
+      background-size: cover
+
+    &_case5
+      background: url('../images/cases/05-popup.jpg') no-repeat center
+      background-size: cover
+
+    &_case6
+      background: url('../images/cases/06-popup.jpg') no-repeat center
+      background-size: cover
+
+    &-title
+      color: #F8F8F9
+      font-weight: 400
+      font-size: 56px
+      line-height: 1.1
+      margin: 0
+      max-width: 540px
+      position: relative
+      z-index: 2
+
+      @media(max-width: 768px)
+        font-size: 26px
+
+  &__content
+    margin: 0 30px 0 0
+
+    @media(max-width: 768px)
+      margin: 0 10px 0 0
+
+  &__content-title
+    font-weight: 500
+    font-size: 28px
+    line-height: 1.4
+    color: #001737
+    margin: 30px 0 0
+
+    @media(max-width: 768px)
+      margin: 16px 0 0
+      font-size: 22px
+
+  &__content-text
+    font-weight: 400
+    font-size: 16px
+    line-height: 1.2
+    color: #405169
+    margin: 20px 0 0
+
+    @media(max-width: 768px)
+      margin: 16px 0 0
+
+  &__button
+    margin-top: 30px
+
+.popup-case-triggers
+  list-style: none
+  margin: 30px 0 0
+  padding: 22px 0
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(min-content, 250px))
+  gap: 15px
+
+.popup-case-triggers-item
+  background: #FFF
+  box-shadow: 0px 3px 24px #dfdfdf
+  border-radius: 25px
+  padding: 23px
+  display: inline-block
+
+  @media(max-width: 768px)
+    box-shadow: none
+    border: 1px solid #dfdfdf5e
+    border-radius: 6px
+    padding: 10px
+
+  &__content
+    padding-left: 14px
+
+  &__title
+    margin: 0
+    font-weight: 500
+    font-size: 36px
+    line-height: 1
+    color: #1F73FF
+    white-space: nowrap
+
+    @media(max-width: 768px)
+      font-size: 18px
+
+  &__text
+    margin: 12px 0 0
+
+.popup-case-specifications
+  list-style: none
+  padding: 0
+  margin: 200px 0 0
+  font-weight: 400
+  font-size: 16px
+  line-height: 1.6
+  color: #fff
+  position: relative
+  z-index: 2
+
+  @media(max-width: 768px)
+    margin: 20px 0 0
